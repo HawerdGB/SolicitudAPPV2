@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SolicitudesAppV2.Models.Estado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Estados</h4>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Crear Nueva</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+               Descripción
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+           
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
